@@ -1,25 +1,22 @@
-import React from 'react';
+import React, { useCallback, memo, useEffect, useRef, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import A from './A';
+import B from './B';
+import { Provider } from './react-redux-zero';
+import store from './redux';
+
+//import * as d3 from "d3";
+//import useInterval from '@use-it/interval';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <A />
+        <B />
+      </div>
+    </Provider>
   );
 }
 
